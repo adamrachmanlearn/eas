@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const button = document.querySelector("button");
 
 for (let i = 256; i > 0; i--) {
     const newDiv = document.createElement("div");
