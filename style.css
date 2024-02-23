@@ -9,10 +9,10 @@
     flex-wrap: wrap;
     width: 960px;
     height: 400px;
-    justify-content: space-evenly;
     border: 1px solid black;
 }
 
 .container div {
-    flex-basis: 74px;
+    flex: 1;
+    flex-basis: 40px;
 }
