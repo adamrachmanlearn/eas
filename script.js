@@ -23,7 +23,7 @@ function createDiv(num) {
 }
 
 container.addEventListener("mouseover", element => {
-    if (element.target.tagName === "DIV") {
+    if (element.target.className !== "container") {
         element.target.style.backgroundColor = "black";
     }
 });
