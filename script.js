@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
 
+createDiv(16);
+
 button.addEventListener("click", () => {
     const divCount = prompt("How many square?", "16");
     removeDiv(container);
