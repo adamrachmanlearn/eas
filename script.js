@@ -4,6 +4,7 @@ const button = document.querySelector("button");
 button.addEventListener("click", () => {
     const divCount = prompt("How many square?", "16");
     removeDiv(container);
+    createDiv(divCount);
 });
 
 function removeDiv(parent) {
@@ -12,10 +13,12 @@ function removeDiv(parent) {
     }
 }
 
-for (let i = 256; i > 0; i--) {
-    const newDiv = document.createElement("div");
-    container.appendChild(newDiv);
-};
+function createDiv(num) {
+    for (let i = num * num; i > 0; i--) {
+        const newDiv = document.createElement("div");
+        container.appendChild(newDiv);
+    }
+}
 
 container.addEventListener("mouseover", element => {
     if (element.target.tagName === "DIV") {
