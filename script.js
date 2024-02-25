@@ -4,7 +4,16 @@ const button = document.querySelector("button");
 createDiv(16);
 
 button.addEventListener("click", () => {
-    const divCount = prompt("How many square?", "16");
+    let divCount;
+    let cond = true;
+    while(cond) {
+        divCount = prompt("How many square?", "16");
+        if (divCount > 100) {
+            alert("Can\'t create more than 100 x 100 divs!");
+        } else {
+            cond = false;
+        }
+    }
     removeDiv(container);
     createDiv(divCount);
 });
