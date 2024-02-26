@@ -36,7 +36,6 @@ function createDiv(num) {
 container.addEventListener("mouseover", element => {
     if (element.target.className !== "container") {
         if (darken <= 10) darken += 1;
-        console.log(darken);
         element.target.style.backgroundColor = randomColor(darken);
     }
 });
