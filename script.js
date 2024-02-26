@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
+let darken = -1;
 
 createDiv(16);
 
@@ -8,14 +9,15 @@ button.addEventListener("click", () => {
     let cond = true;
     while(cond) {
         divCount = prompt("How many square?", "16");
-        if (divCount > 100) {
-            alert("Can\'t create more than 100 x 100 divs!");
+        if (divCount > 100 || divCount < 1) {
+            alert("Only 1 - 100 allowed!");
         } else {
             cond = false;
         }
     }
     removeDiv(container);
     createDiv(divCount);
+    darken = -1;
 });
 
 function removeDiv(parent) {
@@ -33,13 +35,17 @@ function createDiv(num) {
 
 container.addEventListener("mouseover", element => {
     if (element.target.className !== "container") {
-        element.target.style.backgroundColor = randomColor();
+        if (darken <= 10) darken += 1;
+        console.log(darken);
+        element.target.style.backgroundColor = randomColor(darken);
     }
 });
 
-function randomColor() {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return "rgb(" + r + ", " + g + ", " + b + ")"
+function randomColor(darken) {
+    let light = 50;
+    for (let i = darken; i > 0; i--) {
+        light -= 5;
+    }
+    const hue = Math.floor(Math.random() * 361);
+    return "hsl(" + hue + ", 100%, " + light + "%)"
 }
